@@ -633,6 +633,11 @@ section { padding: 88px 0; }
 @media (prefers-color-scheme: dark) { .brief-list .brief-warn, .brief-list .brief-warn .brief-k { background: #3a2a0f; color: #f3dc9a; } }
 @media (max-width: 520px) { .brief-list li { grid-template-columns: 1fr; gap: 2px; } }
 .demo-tabs { flex-wrap: wrap; }
+@media (max-width: 900px) {
+  .demo-bar { flex-wrap: wrap; }
+  .demo-tabs { flex-basis: 100%; }
+  .demo-tab { padding: 6px 12px; }
+}
 .rot-toggle {
   font: inherit; font-size: .9rem; cursor: pointer;
   width: 34px; height: 34px; border-radius: 50%;
@@ -898,3 +903,8 @@ h2.is-in .rw-in { transform: none; }
 :root { --noa: #a9d6f2; }
 @media (prefers-color-scheme: dark) { :root { --noa: #1d4763; } }
 .card-noa { background: var(--noa); border-color: transparent; border-top: 0; }
+
+/* Gabi (card 03, clinic back office) */
+:root { --gabi: #f2d58a; }
+@media (prefers-color-scheme: dark) { :root { --gabi: #4d3f12; } }
+.card-gabi { background: var(--gabi); border-color: transparent; border-top: 0; }
