@@ -268,7 +268,7 @@ p { margin: 0 0 16px; }
 /* big type, glow hero, chat demo */
 .site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(10px); }
 .site-header .wrap { justify-content: flex-start; }
-.site-header .site-nav { margin-inline-start: 0; }
+.site-header .site-nav { margin-inline-start: 36px; }
 .site-header .btn-small { margin-inline-start: auto; }
 .btn-small { padding: 8px 18px; margin-top: 0; font-size: 0.95rem; }
 .btn-big { padding: 16px 34px; font-size: 1.1rem; }
