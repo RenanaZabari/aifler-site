@@ -163,6 +163,9 @@
   var docTabs = document.querySelector(".doc-tabs");
   if (docTabs) setupTabs(docTabs);
 
+  var dmTabs = document.querySelector(".dm-tabs");
+  if (dmTabs) setupTabs(dmTabs);
+
   // Scroll reveal: sections fade up the first time they enter the viewport
   var reveals = document.querySelectorAll(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -175,4 +178,69 @@
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
     reveals.forEach(function (el) { io.observe(el); });
   }
+
+  // Header nav: underline the link of the section in view
+  var navLinks = document.querySelectorAll(".site-nav a");
+  if ("IntersectionObserver" in window && navLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          a.classList.toggle("is-active", a.getAttribute("href") === "#" + e.target.id);
+        });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    navLinks.forEach(function (a) {
+      var s = document.querySelector(a.getAttribute("href"));
+      if (s) spy.observe(s);
+    });
+  }
+
+  // Agent flip cards: tap to turn, "all details" opens the full block below the cards (one at a time)
+  var fullBlocks = document.querySelectorAll(".agent-full");
+  var flipGrid = document.querySelector(".flip-grid");
+  function setFlipped(card, on) {
+    card.classList.toggle("is-flipped", on);
+    card.querySelector(".flip-front").inert = on;
+    card.querySelector(".flip-back").inert = !on;
+  }
+  function closeFull() {
+    fullBlocks.forEach(function (b) { b.hidden = true; });
+    document.querySelectorAll(".flip-open").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
+  }
+  function openFull(id, scroll) {
+    var block = document.getElementById("agent-" + id);
+    if (!block) return;
+    closeFull();
+    block.hidden = false;
+    block.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
+    var btn = document.querySelector('.flip[data-agent="' + id + '"] .flip-open');
+    if (btn) btn.setAttribute("aria-expanded", "true");
+    if (scroll) block.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+  document.querySelectorAll(".flip").forEach(function (card) {
+    var id = card.getAttribute("data-agent");
+    card.querySelector(".flip-back").inert = true;
+    card.querySelector(".flip-front").addEventListener("click", function () { setFlipped(card, true); });
+    card.querySelector(".flip-return").addEventListener("click", function () { setFlipped(card, false); card.querySelector(".flip-turn").focus(); });
+    card.querySelector(".flip-open").addEventListener("click", function () { openFull(id, true); });
+  });
+  fullBlocks.forEach(function (b) {
+    var close = document.createElement("button");
+    close.type = "button";
+    close.className = "agent-close";
+    close.textContent = "סגירה וחזרה לכרטיסים";
+    close.addEventListener("click", function () {
+      closeFull();
+      if (flipGrid) flipGrid.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+    b.appendChild(close);
+  });
+  function openFromHash() {
+    var el = location.hash.length > 1 ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+    var block = el && el.closest ? el.closest(".agent-full") : null;
+    if (block) { openFull(block.id.replace("agent-", ""), false); el.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
 })();
