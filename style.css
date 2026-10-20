@@ -1016,6 +1016,8 @@ section { padding: 56px 0; }
   flex-shrink: 0; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
   color: var(--ink); text-decoration: none; font-size: .9rem; font-weight: 600; line-height: 1.2;
 }
+.site-header .lang-switch { margin-inline-start: auto; }
+.site-header .lang-switch + .btn-small { margin-inline-start: 0; }
 .lang-switch:hover { border-color: var(--accent-2); color: var(--accent-2); }
 .lang-note { font-size: .95rem; color: var(--ink-soft); }
 
