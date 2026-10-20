@@ -1010,3 +1010,28 @@ section { padding: 56px 0; }
 .agent-close { display: block; margin: 36px auto 0; font: inherit; font-weight: 700; cursor: pointer; border-radius: 999px; padding: 8px 20px; border: 2px solid #f2f2f7; background: transparent; color: #f2f2f7; }
 .agent-full { scroll-margin-top: 84px; }
 @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
+
+/* language switch */
+.lang-switch {
+  flex-shrink: 0; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--ink); text-decoration: none; font-size: .9rem; font-weight: 600; line-height: 1.2;
+}
+.lang-switch:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.lang-note { font-size: .95rem; color: var(--ink-soft); }
+
+/* left-to-right pages */
+html[dir="ltr"] body { text-align: left; }
+html[dir="ltr"] .skip-link { right: auto; left: 16px; }
+html[dir="ltr"] .card h3 .emoji { margin-left: 0; margin-right: 6px; }
+html[dir="ltr"] .card ul { padding-right: 0; padding-left: 20px; }
+html[dir="ltr"] .legal ul { padding-right: 0; padding-left: 22px; }
+html[dir="ltr"] .demo { text-align: left; }
+html[dir="ltr"] .feature-card::after { left: auto; right: -120px; }
+html[dir="ltr"] .card .num { left: auto; right: 16px; }
+html[dir="ltr"] .bar { background: linear-gradient(90deg, #6a4af0, #2c3a8f); transform-origin: left center; }
+html[dir="ltr"] .bar-warn { background: linear-gradient(90deg, #f2b84b, #f7d48a); }
+html[dir="ltr"] .doc-table th, html[dir="ltr"] .doc-table td { text-align: left; }
+@media (min-width: 960px) {
+  html[dir="ltr"] .hero-text { text-align: left; }
+}
+.legal div[dir="ltr"] { text-align: left; margin-top: 48px; }
