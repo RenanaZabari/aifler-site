@@ -1,5 +1,10 @@
 (function () {
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rtl = document.documentElement.dir !== "ltr";
+  var en = document.documentElement.lang === "en";
+  var ui = en
+    ? { pause: "Pause the changing words", play: "Resume the changing words", close: "Close and back to the cards" }
+    : { pause: "לעצור את החלפת המילים", play: "להפעיל שוב את החלפת המילים", close: "סגירה וחזרה לכרטיסים" };
 
   // Tabs: shared by the hero demo and the Sammy summary mockup (WAI-ARIA tabs pattern, arrow keys move focus)
   function setupTabs(tablist, onChange) {
@@ -17,8 +22,11 @@
     tabs.forEach(function (tab, i) {
       tab.addEventListener("click", function () { select(tab, false); });
       tab.addEventListener("keydown", function (e) {
-        // RTL: the left arrow moves to the next tab
-        var next = { ArrowLeft: i + 1, ArrowRight: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+        // RTL: the left arrow moves to the next tab; LTR: the right arrow
+        var keys = rtl ? { ArrowLeft: i + 1, ArrowRight: i - 1 } : { ArrowRight: i + 1, ArrowLeft: i - 1 };
+        keys.Home = 0;
+        keys.End = tabs.length - 1;
+        var next = keys[e.key];
         if (next === undefined) return;
         e.preventDefault();
         select(tabs[(next + tabs.length) % tabs.length], true);
@@ -96,7 +104,7 @@
       toggle.addEventListener("click", function () {
         stopped = !stopped;
         toggle.textContent = stopped ? "▶" : "⏸";
-        toggle.setAttribute("aria-label", stopped ? "להפעיל שוב את החלפת המילים" : "לעצור את החלפת המילים");
+        toggle.setAttribute("aria-label", stopped ? ui.play : ui.pause);
       });
       pill.addEventListener("mouseenter", function () { hover = true; });
       pill.addEventListener("mouseleave", function () { hover = false; });
@@ -191,7 +199,8 @@
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
     navLinks.forEach(function (a) {
-      var s = document.querySelector(a.getAttribute("href"));
+      var href = a.getAttribute("href");
+      var s = href.charAt(0) === "#" ? document.querySelector(href) : null;
       if (s) spy.observe(s);
     });
   }
@@ -229,7 +238,7 @@
     var close = document.createElement("button");
     close.type = "button";
     close.className = "agent-close";
-    close.textContent = "סגירה וחזרה לכרטיסים";
+    close.textContent = ui.close;
     close.addEventListener("click", function () {
       closeFull();
       if (flipGrid) flipGrid.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
