@@ -1,0 +1,23 @@
+# AiFler
+
+> AiFler בונה סוכני AI בעברית למרפאות שיניים ולחברות דנטליות (ואפשר להתאים גם לעסקים אחרים). הסוכנים עובדים כמו עוד איש צוות במשרד: מענה למטופלים בוואטסאפ, מעקב אחרי גבייה ומטופלים שלא חזרו, דיווחים מהשטח וסיכומי ישיבות. שם מסחרי של Indy Enterprises Ltd (אינדי יזמות בע"מ). הבעלים והבונה: רננה צברי, מעל 20 שנה בעולם רפואת השיניים.
+
+AiFler builds AI agents in Hebrew for dental clinics and dental companies, and can adapt them to other businesses. The agents work like another member of the office team.
+
+## הסוכנים
+- לינה: עוזרת בוואטסאפ לאנשי מכירות בשטח
+- נועה: מזכירה דיגיטלית שעונה למטופלים בוואטסאפ
+- גבי: עובדת מאחורי הקלעים לצוות המרפאה (גבייה ומעקב מטופלים)
+- סאמי: תמלול וסיכום פגישות על המחשב, מתנה: https://aifler.co.il/sammy/
+- פני: בת-שיח אישית לכסף, מתנה: https://aifler.co.il/penny/
+
+## דפים
+- [דף הבית](https://aifler.co.il/): הסוכנים, איך זה עובד, שאלות נפוצות
+- [Home in English](https://aifler.co.il/en/)
+- [סאמי](https://aifler.co.il/sammy/) · [Sammy](https://aifler.co.il/en/sammy/)
+- [פני](https://aifler.co.il/penny/) · [Penny](https://aifler.co.il/en/penny/)
+- [מדיניות פרטיות](https://aifler.co.il/privacy/)
+
+## יצירת קשר
+- מייל: infoaiflear@gmail.com
+- טלפון: 055-966-6138
