@@ -260,8 +260,8 @@ p { margin: 0 0 16px; }
   background: var(--footer-bg);
   color: var(--footer-ink);
   border-top: 2px solid var(--accent);
-  padding: 12px 0 10px;
-  font-size: 0.7rem;
+  padding: 8px 0 7px;
+  font-size: 0.62rem;
   line-height: 1.5;
 }
 .site-footer a { color: var(--footer-ink); }
@@ -1053,3 +1053,12 @@ html[dir="ltr"] .doc-table th, html[dir="ltr"] .doc-table td { text-align: left;
   html[dir="ltr"] .hero-text { text-align: left; }
 }
 .legal div[dir="ltr"] { text-align: left; margin-top: 48px; }
+
+/* articles: breadcrumb and cards */
+.breadcrumb { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 16px; }
+.breadcrumb ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.breadcrumb li + li::before { content: "\2039"; margin-inline-end: 6px; }
+.breadcrumb a { color: inherit; }
+.article-card { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin: 16px 0; background: var(--surface); }
+.article-card h2, .article-card h3 { font-size: 1.15rem; margin: 0 0 8px; }
+.article-card p { margin: 0; color: var(--ink-soft); }
