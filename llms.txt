@@ -16,6 +16,8 @@ AiFler builds AI agents in Hebrew for dental clinics and dental companies, and c
 - [Home in English](https://aifler.co.il/en/)
 - [סאמי](https://aifler.co.il/sammy/) · [Sammy](https://aifler.co.il/en/sammy/)
 - [פני](https://aifler.co.il/penny/) · [Penny](https://aifler.co.il/en/penny/)
+- [סוכן AI או מזכירה? מה ההבדל במרפאת שיניים](https://aifler.co.il/ai-agent-or-front-desk/)
+- [איך סוכן AI עוזר לאנשי מכירות בשטח בחברה דנטלית](https://aifler.co.il/ai-agent-dental-sales-reps/)
 - [מדיניות פרטיות](https://aifler.co.il/privacy/)
 
 ## יצירת קשר

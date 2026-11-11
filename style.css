@@ -259,18 +259,20 @@ p { margin: 0 0 16px; }
 .site-footer {
   background: var(--footer-bg);
   color: var(--footer-ink);
-  border-top: 4px solid var(--accent);
-  padding: 40px 0 32px;
-  font-size: 0.95rem;
+  border-top: 2px solid var(--accent);
+  padding: 12px 0 10px;
+  font-size: 0.7rem;
+  line-height: 1.5;
 }
 .site-footer a { color: var(--footer-ink); }
 .site-footer a:hover { color: var(--accent-soft); }
-.site-footer .company { font-weight: 700; margin-bottom: 8px; }
+.site-footer p { margin: 0 0 4px; }
+.site-footer .company { font-weight: 700; }
 .site-footer .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 16px 0;
+  gap: 2px 14px;
+  margin: 4px 0;
   padding: 0;
   list-style: none;
 }
