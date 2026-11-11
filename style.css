@@ -1179,3 +1179,10 @@ html[dir="ltr"] .doc-table th, html[dir="ltr"] .doc-table td { text-align: left;
 @media (min-width: 1000px) { .art-hub .art-cards { grid-template-columns: repeat(3, 1fr); } }
 .art-more-sec .narrow .art-cards { grid-template-columns: 1fr; }
 .art-card p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+html[dir="ltr"] .breadcrumb li + li::before { content: "\203A"; }
+html[dir="ltr"] .art-table thead th, html[dir="ltr"] .art-table td, html[dir="ltr"] .art-table tbody th { text-align: left; }
+html[dir="ltr"] .art-hero h1 { letter-spacing: -0.02em; }
+@media (min-width: 900px) {
+  .site-header .site-nav { gap: clamp(14px, 1.9vw, 40px); flex-wrap: nowrap; }
+  .site-header .site-nav a { white-space: nowrap; }
+}
