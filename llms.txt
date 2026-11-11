@@ -19,6 +19,13 @@ AiFler builds AI agents in Hebrew for dental clinics and dental companies, and c
 - [מאמרים](https://aifler.co.il/articles/)
 - [סוכן AI או מזכירה? מה ההבדל במרפאת שיניים](https://aifler.co.il/ai-agent-or-front-desk/)
 - [איך סוכן AI עוזר לאנשי מכירות בשטח בחברה דנטלית](https://aifler.co.il/ai-agent-dental-sales-reps/)
+- [מה זה סוכן AI, ובמה הוא שונה מצ'אטבוט?](https://aifler.co.il/what-is-an-ai-agent/)
+- [מידע של מטופלים ו-AI: מה לשאול כל ספק לפני שמכניסים אותו למרפאה](https://aifler.co.il/patient-data-and-ai/)
+- [איך עוקבים אחרי מטופלים שלא חזרו ותשלומים פתוחים, בלי לרדוף?](https://aifler.co.il/patients-not-returning-and-open-payments/)
+- [איך מתחילים עם AI במרפאה: תהליך אחד לפני הכל](https://aifler.co.il/start-with-ai-in-a-dental-clinic/)
+- [האם צריך להחליף את התוכנה של המרפאה כדי להשתמש ב-AI?](https://aifler.co.il/do-i-need-to-replace-clinic-software/)
+- [האם מטופלים יודעים שהם מדברים עם AI?](https://aifler.co.il/do-patients-know-it-is-ai/)
+- [איך מסכמים ישיבת צוות בלי לרשום: סאמי](https://aifler.co.il/summarize-team-meetings-with-sammy/)
 - [מדיניות פרטיות](https://aifler.co.il/privacy/)
 
 ## יצירת קשר
