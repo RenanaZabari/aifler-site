@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>פני - התקנה | AiFler</title>
+  <meta name="description" content="בוחרים גרסה של פני, מורידים ומתקינים אותה צעד אחרי צעד: Claude, ChatGPT או Codex.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://aifler.co.il/penny/install/">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+  <meta property="og:title" content="פני - התקנה | AiFler">
+  <meta property="og:image" content="https://aifler.co.il/assets/photos/penny-desk-lg.webp">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/style.css?v=202611122100">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/main.js?v=202610201500" defer></script>
+    <style>
+.section-head { margin-bottom: 44px; }
+.kicker {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.section-head h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  margin-bottom: 12px;
+}
+.section-head p {
+  color: var(--ink-soft);
+  max-width: 60ch;
+  font-size: 1.05rem;
+}
+code, .path {
+  font-family: ui-monospace, Consolas, monospace;
+  direction: ltr;
+  unicode-bidi: embed;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.1em 0.5em;
+  font-size: 0.85em;
+  display: inline-block;
+}
+.isteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.istep {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 22px;
+  position: relative;
+  padding-bottom: 40px;
+}
+.istep:last-child { padding-bottom: 0; }
+.step-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.istep:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 52px;
+  right: 25px;
+  width: 2px;
+  height: calc(100% - 52px);
+  background: var(--line);
+}
+.step-body h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.step-body p { color: var(--ink-soft); }
+.step-body .path { margin-top: 10px; }
+.os-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.os-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.os-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.os-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+@media (max-width: 520px) {
+  .os-grid { grid-template-columns: 1fr; }
+}
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 18px;
+}
+.shot-item { display: flex; flex-direction: column; gap: 10px; }
+.shot-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shot {
+  position: relative;
+  max-width: 280px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+.shot img { display: block; width: 100%; height: auto; }
+.shot .ptr {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.shot-caption {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.shot-caption .path { font-size: 0.85em; }
+@media (max-width: 760px) {
+  .shots { grid-template-columns: 1fr; }
+}
+.plat { position: relative; }
+.plat-radio { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.plat-switch { display: flex; gap: 10px; margin-bottom: 34px; flex-wrap: wrap; }
+.plat-switch label {
+  flex: 1 1 220px;
+  cursor: pointer;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.plat-switch label small {
+  display: block;
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.plat-switch label:hover { border-color: var(--accent); }
+#plat-claude:checked ~ .plat-switch label[for="plat-claude"],
+#plat-codex:checked ~ .plat-switch label[for="plat-codex"] {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: var(--primary);
+}
+#plat-claude:checked ~ .plat-switch label[for="plat-claude"] small,
+#plat-codex:checked ~ .plat-switch label[for="plat-codex"] small {
+  color: color-mix(in srgb, var(--primary-ink) 75%, transparent);
+}
+.plat-radio:focus-visible ~ .plat-switch label { outline: 2px solid var(--accent); outline-offset: 2px; }
+.plat-panel { display: none; }
+#plat-claude:checked ~ .plat-panel-claude,
+#plat-codex:checked ~ .plat-panel-codex { display: block; }
+.shots-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 760px) { .shots-2 { grid-template-columns: 1fr; } }
+.plat-lead { color: var(--ink-soft); max-width: 62ch; margin-bottom: 30px; }
+.plat-lead b { color: var(--ink); }
+.shots, .shots-2 { grid-template-columns: 1fr !important; gap: 30px; }
+.shot-item { align-items: flex-start; }
+.shot { display: inline-block; width: fit-content; max-width: min(100%, 680px); margin: 0; }
+.shot img { width: auto; max-width: 100%; }
+.shot-item .shot-num { order: -2; }
+.shot-item .shot-caption { order: -1; font-size: 0.95rem; color: var(--ink); }
+#plat-chatgpt:checked ~ .plat-switch label[for="plat-chatgpt"] { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+#plat-chatgpt:checked ~ .plat-switch label[for="plat-chatgpt"] small { color: color-mix(in srgb, var(--primary-ink) 75%, transparent); }
+#plat-chatgpt:checked ~ .plat-panel-chatgpt { display: block; }
+.dl { display: inline-flex; align-items: center; gap: 8px; margin: 12px 0 10px; background: var(--accent); color: #0b2a24; font-weight: 700; text-decoration: none; border-radius: 10px; padding: 12px 22px; }
+.dl:hover { filter: brightness(1.06); }
+.help { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+.help p { color: var(--ink-soft); }
+.kicker { color: var(--accent); }
+.section-head h2 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
+.plat-switch label { border-radius: 999px; }
+.install-hero .lead { font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: var(--ink-soft); max-width: 600px; }
+.help-wrap { padding-top: 0; }
+  </style>
+</head>
+<body class="gift-page gift-penny">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo-link" href="/" aria-label="AiFler - לדף הבית"><svg class="logo-anim" xmlns="http://www.w3.org/2000/svg" width="160" height="53" role="img" aria-label="AiFler" viewBox="-38.60 -40.30 594.37 196.50"><path class="lg-bubble" fill="#12A38A" d="M-10.489425981873111,-36.19335347432023 H147.41993957703926 Q171.41993957703926,-36.19335347432023 171.41993957703926,-12.193353474320233 V106.0 Q171.41993957703926,130.0 147.41993957703926,130.0 H5.5105740181268885 L-26.48942598187311,152.0 L-18.48942598187311,122.0 Q-34.48942598187311,114.0 -34.48942598187311,100.0 V-12.193353474320233 Q-34.48942598187311,-36.19335347432023 -10.489425981873111,-36.19335347432023 Z"/><path class="lg-ai" fill="#FFFFFF" d="M1.510574018126888 100.0H25.226586102719033L32.02416918429003 78.24773413897282H68.7311178247734L75.52870090634441 100.0H99.24471299093655L65.70996978851963 0.0H35.04531722054381ZM37.764350453172206 60.120845921450154 50.453172205438065 19.939577039274923 62.99093655589124 60.120845921450154Z"/><circle class="lg-dot" cx="124.77" cy="3.47" r="11.50" fill="#7C5CFF"/><path class="lg-ai" fill="#FFFFFF" d="M114.12084592145014 100.0H135.41993957703926V24.47129909365559H114.12084592145014Z"/><path class="lg-fler lg-f1"  d="M209.0513595166163 100.0H233.2205438066465V58.45921450151058H267.81268882175226V39.42598187311179H233.2205438066465V18.882175226586114H276.42296072507554V0.0H209.0513595166163Z"/><path class="lg-fler lg-f2"  d="M296.5861027190332 100.0H360.78549848942595V81.1178247734139H320.7552870090634V-0.1510574018126789H296.5861027190332Z"/><path class="lg-fler lg-f3"  d="M449.67975830815703 100.0V81.57099697885197H404.3625377643504V56.94864048338369H442.5800604229607V38.51963746223565H404.3625377643504V18.429003021148034H448.16918429003016V-0.1510574018126789H380.1933534743202V100.0Z"/><path class="lg-fler lg-f4"  d="M472.8640483383685 100.0H496.27794561933524V59.96978851963746H510.17522658610267C518.0302114803625 59.96978851963746 523.7703927492446 63.44410876132931 523.7703927492446 72.35649546827796V78.3987915407855C523.7703927492446 87.61329305135952 524.5256797583081 91.54078549848943 527.8489425981873 100.0H551.7160120845921C547.7885196374622 89.72809667673717 547.1842900302114 85.34743202416918 547.1842900302114 78.3987915407855V72.05438066465257C547.1842900302114 63.897280966767376 542.3504531722053 56.042296072507554 527.6978851963745 52.11480362537765C541.4441087613292 47.73413897280967 548.845921450151 39.72809667673717 548.845921450151 27.64350453172206C548.845921450151 9.516616314199396 534.7975830815709 0.0 508.81570996978843 0.0H472.8640483383685ZM509.7220543806646 43.051359516616316H496.27794561933524V16.91842900302116H509.7220543806646C518.3323262839879 16.91842900302116 523.3172205438066 21.45015105740181 523.3172205438066 28.700906344410882V31.268882175226594C523.3172205438066 38.066465256797585 518.3323262839879 43.051359516616316 509.7220543806646 43.051359516616316Z"/></svg></a>
+      <nav class="site-nav" aria-label="ניווט ראשי">
+        <a href="/#business">סוכן לעסק</a>
+        <a href="/#agents">הסוכנים</a>
+        <a href="/#start">מתנות</a>
+        <a href="/#about">מי אני</a>
+        <a href="/#faq">שאלות נפוצות</a>
+        <a href="/articles/">מאמרים</a>
+      </nav>
+      <a class="btn btn-small" href="/#contact">יצירת קשר</a>
+    </div>
+  </header>
+
+  <main id="main">
+<section class="gift-hero install-hero">
+  <div class="wrap">
+    <span class="pill">💰 מדריך התקנה</span>
+    <h1>פני</h1>
+    <p class="lead">בוחרים גרסה, מורידים, ומתקינים לפי הצעדים. עושים את זה פעם אחת.</p>
+  </div>
+</section>
+<main>
+<section id="install">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">המדריך</span>
+        <h2>מורידים ומתקינים את פני</h2>
+        <p>בוחרים את מה שיש לך. בכל אחד יש כפתור הורדה, ומתחתיו הצעדים. <b>מורידים ומתקינים במחשב, לא בטלפון.</b></p>
+      </div>
+
+      <div class="plat">
+        <input class="plat-radio" type="radio" name="plat" id="plat-claude" checked>
+        <input class="plat-radio" type="radio" name="plat" id="plat-chatgpt">
+        <input class="plat-radio" type="radio" name="plat" id="plat-codex">
+        <div class="plat-switch">
+          <label for="plat-claude">Claude<small>מתקינים תוסף באפליקציה</small></label>
+          <label for="plat-chatgpt">ChatGPT<small>מעלים ל-Skills (מנוי בתשלום)</small></label>
+          <label for="plat-codex">ChatGPT Codex<small>פותחים תיקיית עבודה</small></label>
+        </div>
+        <div class="plat-panel plat-panel-claude">
+          <div class="isteps">
+        <div class="istep">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>מורידים את הקובץ</h3>
+            <p>מורידים את <span class="path">Penny-Claude.zip</span> ושומרים אותו איפשהו שנוח למצוא. <b>לא צריך לחלץ אותו.</b></p>
+            <a class="dl" href="https://drive.google.com/file/d/1HW5p5jAJoSg4LRiqfMgLaUmGoULucosK/view?usp=drive_link" target="_blank" rel="noopener">⬇ להורדת פני ל-Claude</a>
+          </div>
+        </div>
+        <div class="istep">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>מתקינים ב-Claude Desktop</h3>
+            <p>הכפתורים באפליקציה באנגלית, כי לקלוד אין ממשק בעברית: <span class="path">Plugins</span> בחלק העליון של התפריט שבצד השמאלי (לא למטה, איפה שמופיע השם שלכם) ← <span class="path">Add</span> (הכפתור השחור למעלה מימין) ← <span class="path">Upload plugin</span>, ואז בוחרים את הקובץ שהורדתם. לא גוררים את הקובץ לתוך שיחה, כי ככה הוא רק מצורף ולא מותקן.</p>
+
+                        <div class="shots">
+              <div class="shot-item">
+                <span class="shot-num">1</span>
+                <div class="shot"><img src="/assets/photos/install-claude-plugins.png" alt="אפליקציית Claude, עם Plugins מסומן בתפריט שבצד השמאלי" loading="lazy"></div>
+                <p class="shot-caption">בתפריט שבצד השמאלי, בחלק העליון שלו, לוחצים <span class="path">Plugins</span>. לא למטה, איפה שמופיע השם שלכם.</p>
+              </div>
+              <div class="shot-item">
+                <span class="shot-num">2</span>
+                <div class="shot"><img src="/assets/photos/install-claude-add.png" alt="המסך Plugins, עם הכפתור Add והאפשרות Upload plugin מסומנים" loading="lazy"></div>
+                <p class="shot-caption">למעלה מימין לוחצים על הכפתור השחור <span class="path">Add</span>, ובתפריט שנפתח בוחרים <span class="path">Upload plugin</span></p>
+              </div>
+              <div class="shot-item">
+                <span class="shot-num">3</span>
+                <div class="shot"><img src="/assets/photos/install-claude-upload.png" alt="החלון Upload a plugin, עם browse והכפתור Upload מסומנים" loading="lazy"></div>
+                <p class="shot-caption">לוחצים על <span class="path">browse</span> ובוחרים את <span class="path">Penny-Claude.zip</span>. אחרי זה הכפתור <span class="path">Upload</span> נדלק, ולוחצים עליו.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="istep">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>פותחים מחדש</h3>
+            <p>סגירה מלאה של Claude Desktop (לא רק סגירת החלון - האפליקציה ממשיכה לרוץ ברקע גם אחרי שסוגרים חלון) ופתיחה מחדש, כדי שההתקנה תיכנס לתוקף.</p>
+            <div class="os-grid">
+              <div class="os-card">
+                <div class="os-label">Windows</div>
+                <p>לחיצה ימנית על סמל Claude ליד השעון (שורת המשימות) ← <span class="path">Quit</span> / <span class="path">Exit</span>. לא נמצא שם? Task Manager ← מסמנים את Claude ← <span class="path">End task</span>.</p>
+              </div>
+              <div class="os-card">
+                <div class="os-label">Mac</div>
+                <p>ה-X האדום סוגר רק את החלון, לא את האפליקציה. יציאה מלאה: <span class="path">Cmd + Q</span>, או מתפריט Claude שבסרגל העליון ← <span class="path">Quit Claude</span>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="istep">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>שיחה ראשונה</h3>
+            <p>פותחים שיחה חדשה וכותבים "היי פני". היא תציג את עצמה, ותנחה אותך איך להתקדם.</p>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="plat-panel plat-panel-chatgpt">
+          <p class="plat-lead"><b>צריך חשבון ChatGPT בתשלום (Plus ומעלה).</b> פני נכנסת ל-ChatGPT דרך Skills, וזה פיצ'ר של מנוי בתשלום.</p>
+          <div class="isteps">
+            <div class="istep"><div class="step-num">1</div><div class="step-body">
+              <h3>מורידים ומחלצים</h3>
+              <a class="dl" href="https://drive.google.com/file/d/1-OfWRC_k9nZudKE2ye_qnntwqIQrzblX/view?usp=sharing" target="_blank" rel="noopener">⬇ להורדת פני ל-ChatGPT</a>
+              <p>מורידים את <span class="path">Penny-ChatGPT.zip</span> ומחלצים אותו. בפנים יש תיקייה בשם <span class="path">skills</span> עם 20 קבצים, קובץ לכל יכולת של פני.</p>
+            </div></div>
+            <div class="istep"><div class="step-num">2</div><div class="step-body">
+              <h3>מעלים את 20 היכולות</h3>
+              <p>ב-ChatGPT: <span class="path">Plugins</span> (בתפריט הצד) ← הלשונית <span class="path">Skills</span> למעלה ← <span class="path">+</span> ← <span class="path">Upload from your computer</span>. בוחרים <b>את כל 20 הקבצים ביחד</b>: נכנסים לתיקייה <span class="path">skills</span>, לוחצים <span class="path">Ctrl+A</span>, וגוררים אותם לחלון ההעלאה.</p>
+              <div class="os-grid"><div class="os-card"><div class="os-label">קובץ מסומן "Invalid skill"?</div><p>בדרך כלל זה אומר שהוא כבר הותקן. אפשר להתעלם.</p></div></div>
+            </div></div>
+            <div class="istep"><div class="step-num">3</div><div class="step-body">
+              <h3>מומלץ: מחברים Google Drive</h3>
+              <p>ככה פני זוכרת בין שיחות. <span class="path">Plugins</span> ← מחפשים <span class="path">Google Drive</span> ← <span class="path">Connect</span>. יוצרים ב-Drive תיקייה ריקה לפני (למשל <span class="path">Penny</span>), ובשיחה הראשונה, כשפני שואלת איפה לשמור, אומרים לה את שם התיקייה. בלי זה פני עובדת מצוין, רק שבסוף כל שיחה היא נותנת קובץ המשכיות להורדה, ומצרפים אותו בשיחה הבאה.</p>
+            </div></div>
+            <div class="istep"><div class="step-num">4</div><div class="step-body">
+              <h3>שיחה ראשונה</h3>
+              <p>פותחים שיחה חדשה וכותבים "היי פני". היא תענה "פני כאן. 💰", תציג את עצמה ותשאל איך לפנות אליך.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="plat-panel plat-panel-codex">
+          <p class="plat-lead"><b>Codex אינו תוכנה נפרדת ואין מה להתקין בשבילו.</b> זו לשונית בתוך אפליקציית ChatGPT שכבר מוכרת לך - אותו חשבון, אותה אפליקציה, רק במצב שיודע לקרוא קבצים מהמחשב שלך. כל מה שצריך: אפליקציית ChatGPT למחשב, ומנוי שכולל Codex.</p>
+          <div class="isteps">
+            <div class="istep">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h3>מורידים ומחלצים</h3>
+                <a class="dl" href="https://drive.google.com/file/d/1cqHkf8OhDR08kaRmNH2azRJ7bNivc-3A/view?usp=sharing" target="_blank" rel="noopener">⬇ להורדת פני ל-Codex</a>
+                <p>מורידים את <span class="path">Penny-Codex.zip</span> ומחלצים אותו לאן שנוח - <b>התיקייה שנוצרת היא הבית של פני</b>, וזה המקום שבו יישמרו דוחות הבנק.</p>
+              </div>
+            </div>
+            <div class="istep">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h3>מומלץ: צעד אחד לפרטיות</h3>
+                <p>לא חובה, אבל כדאי: ההגדרה הזאת קובעת אם השיחות שלך משמשות לאימון. ההגדרה שייכת <b>לחשבון ChatGPT שלך</b> - אותו חשבון שבתוכו יושב Codex: נכנסים ל-<span class="path">chatgpt.com</span>, לוחצים על תמונת הפרופיל בפינה ← <span class="path">Settings</span> ← <span class="path">Data controls</span>, ומכבים את <span class="path">Improve the model for everyone</span>.</p>
+                <div class="os-grid">
+                  <div class="os-card">
+                    <div class="os-label">איפה כל דבר נעשה - וזה מבלבל</div>
+                    <p><b>הגדרת הפרטיות</b> נעשית באתר <span class="path">chatgpt.com</span>, בדפדפן. המתג הזה פשוט לא קיים באפליקציה, וגם אם מתחילים ממנה (<span class="path">Account</span>) היא פותחת דפדפן.<br><b>ההתקנה עצמה</b> - פתיחת התיקייה של פני - נעשית באפליקציה, בצעד הבא.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="istep">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h3>פותחים את התיקייה</h3>
+                <p>פותחים את <b>אפליקציית <span class="path">ChatGPT</span> שמותקנת על המחשב</b> - לא את האתר בדפדפן. למעלה במרכז בוחרים בלשונית <span class="path">Work</span>, ואז <span class="path">File</span> ← <span class="path">Open Folder</span> ובוחרים את התיקייה של פני שחילצתם.</p>
+                <div class="shots shots-2">
+                  <div class="shot-item">
+                    <span class="shot-num">1</span>
+                    <div class="shot"><img src="/assets/photos/install-chatgpt-work.png" alt="אפליקציית ChatGPT, עם הלשונית Work מסומנת למעלה במרכז" loading="lazy"></div>
+                    <p class="shot-caption">למעלה במרכז בוחרים בלשונית <span class="path">Work</span></p>
+                  </div>
+                  <div class="shot-item">
+                    <span class="shot-num">2</span>
+                    <div class="shot"><img src="/assets/photos/install-chatgpt-open-folder.png" alt="תפריט File פתוח, עם Open Folder מסומן" loading="lazy"></div>
+                    <p class="shot-caption">בתפריט <span class="path">File</span> בוחרים <span class="path">Open Folder</span>, ומאתרים את התיקייה של פני</p>
+                  </div>
+                </div>
+                <div class="os-grid">
+                  <div class="os-card">
+                    <div class="os-label">חשוב</div>
+                    <p>אם נשאלת אם לסמוך על התיקייה - מאשרים. בלי האישור הזה פני לא נטענת.</p>
+                  </div>
+                  <div class="os-card">
+                    <div class="os-label">כאן הכי קל להיתקע</div>
+                    <p>הדפדפן והאפליקציה נראים כמעט זהים, ולשניהם יש לשונית <span class="path">Work</span> - <b>אבל רק באפליקציה אפשר לפתוח תיקייה.</b> באפליקציה יש למעלה שורת תפריט <span class="path">File Edit View Help</span>; בדפדפן אין, ובמקומה יש כפתור <span class="path">Open desktop app</span> שמעביר אליה.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="istep">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h3>שיחה ראשונה</h3>
+                <p>כותבים "היי". פני תענה "פני כאן. 💰", תציג את עצמה ותשאל לשמך ואיך לפנות אליך. זהו, היא עובדת.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="help-wrap">
+  <div class="wrap">
+    <div class="help">
+      <p><b>משהו לא עובד?</b> פותחים שיחה חדשה וכותבים שוב "היי פני". שיחה שהייתה פתוחה לפני ההתקנה לא מכירה אותה. נתקעת? אפשר לענות למייל עם הקישור לדף הזה, או לכתוב אל <a href="mailto:infoaiflear@gmail.com" dir="ltr">infoaiflear@gmail.com</a>, עם צילום מסך והסבר קצר מה לא עובד. רק לוודא שבצילום לא רואים מספרים מהדוחות שלך.</p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="company">AiFler הוא שם מסחרי של <span class="nowrap">Indy Enterprises Ltd</span> (אינדי יזמות בע"מ), ח.פ. 513540484</p>
+      <p>מייל: <a class="ltr" href="mailto:infoaiflear@gmail.com">infoaiflear@gmail.com</a> · טלפון: <a class="ltr" href="tel:+972559666138">055-966-6138</a> · כתובת: רביד 4, אלפי מנשה 4485100</p>
+      <ul class="footer-links">
+        <li><a href="/privacy/">מדיניות פרטיות</a></li>
+        <li><a href="/terms/">תנאי שימוש</a></li>
+        <li><a href="/accessibility/">הצהרת נגישות</a></li>
+        <li><a href="/articles/">מאמרים</a></li>
+      </ul>
+      <p class="copy">© 2026 AiFler. כל הזכויות שמורות.</p>
+    </div>
+  </footer>
+</body>
+</html>
