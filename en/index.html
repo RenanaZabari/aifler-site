@@ -19,7 +19,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:locale" content="en_US">
-  <link rel="stylesheet" href="/style.css?v=202611251556">
+  <link rel="stylesheet" href="/style.css?v=202611251843">
   <script>document.documentElement.classList.add("js")</script>
   <script src="/main.js?v=202611251556" defer></script>
   <script type="application/ld+json">
@@ -196,7 +196,7 @@
           <li><strong>An agent that works for you.</strong> We build it, test it on your data, and hand it over for everyday work.</li>
         </ol>
         <p class="principle-light">And every agent follows the same principle: it asks before it guesses, and your data isn't sent anywhere you didn't choose.</p>
-        <p class="biz-example">Examples of what can be built: <a href="#lina-title">Lina</a>, a WhatsApp assistant for field sales reps, <a href="#noa-title">Noa</a>, a digital receptionist who answers the clinic's patients, and <a href="#gabi-title">Gabi</a>, who works for the clinic team behind the scenes.</p>
+        <p class="biz-example">Examples of what can be built: <a href="#lina-title">Lina</a>, a WhatsApp assistant for field sales reps, <a href="#noa-title">Noa</a>, a digital receptionist who answers the clinic's patients, and <a href="#gabi-title">Gabi</a>, who works for the clinic team or the company team behind the scenes.</p>
         <a class="btn" href="#contact">Talk about an agent for your business →</a>
       </div>
         <figure class="demo reveal" data-demo>
@@ -252,7 +252,7 @@
     <section id="agents" class="dark-section" aria-labelledby="agents-title">
       <div class="wrap">
         <h2 id="agents-title" class="big-title center">Examples and gifts</h2>
-        <p class="agents-lead">Lina, Noa and Gabi are examples of agents built for a business: Lina for a company, Noa and Gabi for a clinic. Sammy and Penny are gifts: you can download them and try them yourself. All the agents work in Hebrew.</p>
+        <p class="agents-lead">Lina, Noa and Gabi are examples of agents built for a business: Lina for a company, Noa for a clinic, and Gabi for a clinic and a company. Sammy and Penny are gifts: you can download them and try them yourself. All the agents work in Hebrew.</p>
         <div class="flip-grid">
           <div class="flip" style="--c: var(--lina)" data-agent="lina">
             <div class="flip-inner">
@@ -291,15 +291,15 @@
           <div class="flip" style="--c: var(--gabi)" data-agent="gabi">
             <div class="flip-inner">
               <div class="flip-face flip-front">
-                <span class="flip-tag">Example agent for a clinic</span>
+                <span class="flip-tag">Example agent for a clinic and a company</span>
                 <span class="flip-emoji" aria-hidden="true">🗂️</span>
                 <h3>Gabi</h3>
-                <p>Works for the clinic team, behind the scenes</p>
+                <p>Works for the team, behind the scenes</p>
                 <button type="button" class="flip-turn">What she does →</button>
               </div>
               <div class="flip-face flip-back" inert>
                 <h3>🗂️ Gabi</h3>
-                <p>Takes the office tasks that eat up time every day, and is built around whatever weighs most on your clinic.</p>
+                <p>Takes the office tasks that eat up time every day, and is built around whatever weighs most on your business.</p>
                 <button type="button" class="flip-open" aria-expanded="false" aria-controls="agent-gabi">All the details and the demo</button>
                 <button type="button" class="flip-return">Back</button>
               </div>
@@ -456,20 +456,33 @@
         <div class="agent-row reveal">
             <article class="card card-gabi" aria-labelledby="gabi-title">
               <span class="num" aria-hidden="true">03</span>
-              <span class="tag-example">Example agent for a clinic</span>
-              <h3 id="gabi-title"><span class="emoji" aria-hidden="true">🗂️</span>Gabi - works for the clinic team, behind the scenes</h3>
+              <span class="tag-example">Example agent for a clinic and a company</span>
+              <h3 id="gabi-title"><span class="emoji" aria-hidden="true">🗂️</span>Gabi - works for the team, behind the scenes</h3>
               <dl>
                 <dt>What she does</dt>
-                <dd>Noa answers patients. Gabi works for the team: she takes the office tasks that eat up time every day. She's built around whatever weighs most on your clinic.</dd>
+                <dd>Gabi works for the team: she takes the office tasks that eat up time every day. She's built around whatever weighs most on your business.</dd>
                 <dt>What you get (examples)</dt>
                 <dd>
                   <ul>
-                    <li>Follow-up on patients who didn't come back for a check-up or for follow-up treatment.</li>
-                    <li>Collections follow-up: who hasn't paid, and a draft reminder that the team approves before it goes out.</li>
-                    <li>Supplier orders and tracking of material stock.</li>
-                    <li>Summaries of team meetings and tasks.</li>
-                    <li>Reports for the clinic owners: appointments, cancellations and income.</li>
-                    <li>Order in documents and forms, such as treatment consent forms.</li>
+                    <li>For a clinic:
+                      <ul>
+                        <li>Follow-up on patients who didn't come back for a check-up or for follow-up treatment.</li>
+                        <li>Collections follow-up: who hasn't paid, and a draft reminder that the team approves before it goes out.</li>
+                        <li>Supplier orders and tracking of material stock.</li>
+                        <li>Summaries of team meetings and tasks.</li>
+                        <li>Reports for the clinic owners: appointments, cancellations and income.</li>
+                        <li>Order in documents and forms, such as treatment consent forms.</li>
+                      </ul>
+                    </li>
+                    <li>For a dental company:
+                      <ul>
+                        <li>Tracking orders and deliveries with customers and suppliers.</li>
+                        <li>Collections and payment reminders.</li>
+                        <li>Reports and stock tracking.</li>
+                        <li>Weekly and monthly summaries for the manager.</li>
+                        <li>A custom dashboard view that's easy to understand.</li>
+                      </ul>
+                    </li>
                   </ul>
                 </dd>
               </dl>
@@ -477,7 +490,7 @@
                 <summary>More details: privacy and what to know</summary>
                 <dl>
                   <dt>Privacy</dt>
-                  <dd>Gabi works in the clinic's accounts, and the data stays with you. To understand a task and write a draft, the text goes to Claude through the clinic's account.</dd>
+                  <dd>Gabi works in the business's accounts, and the data stays with you. To understand a task and write a draft, the text goes to Claude through your account.</dd>
                   <dt>Good to know</dt>
                   <dd>Every reminder goes out only after the team has approved it.</dd>
                 </dl>
