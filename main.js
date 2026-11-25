@@ -95,6 +95,21 @@
     var states = pill.getAttribute("data-words").split("|").map(function (w) { return [lead, w]; });
     states.push([pill.getAttribute("data-final-lead"), pill.getAttribute("data-final")]);
     var show = function (st) { leadEl.textContent = st[0]; wordEl.textContent = st[1]; };
+    // Reserve the height of the tallest state so the content below never moves when the text changes
+    var rotBox = pill.parentNode;
+    var current = states[0];
+    var reserve = function () {
+      rotBox.style.minHeight = "";
+      var tallest = 0;
+      states.forEach(function (st) {
+        show(st);
+        tallest = Math.max(tallest, Math.ceil(rotBox.getBoundingClientRect().height));
+      });
+      show(current);
+      rotBox.style.minHeight = tallest + "px";
+    };
+    var reserveTimer;
+    var reserveSoon = function () { clearTimeout(reserveTimer); reserveTimer = setTimeout(reserve, 120); };
     if (reduceMotion) {
       show(states[states.length - 1]);
     } else {
@@ -112,8 +127,11 @@
         if (hover || stopped) return;
         idx = (idx + 1) % states.length;
         wordEl.classList.add("is-out");
-        setTimeout(function () { show(states[idx]); wordEl.classList.remove("is-out"); }, 280);
+        setTimeout(function () { current = states[idx]; show(current); wordEl.classList.remove("is-out"); }, 280);
       }, 2200);
+      reserve();
+      window.addEventListener("resize", reserveSoon);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
     }
   }
 

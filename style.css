@@ -672,7 +672,7 @@ section { padding: 88px 0; }
 .hero { padding: 48px 0 64px; }
 .hero h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: 16px; }
 .pill { margin-bottom: 16px; }
-.rotator { margin-bottom: 16px; font-size: clamp(1.25rem, 3vw, 1.8rem); }
+.rotator { margin-bottom: 16px; font-size: clamp(1.25rem, 3vw, 1.8rem); align-content: flex-start; }
 .hero .lead { margin-bottom: 24px; font-size: clamp(1.05rem, 2vw, 1.2rem); }
 .demo { margin-top: 36px; }
 
@@ -765,9 +765,14 @@ h2.is-in .rw-in { transform: none; }
 .stack img:nth-child(1) { transform: rotate(-9deg) translateX(-30px); }
 .stack img:nth-child(2) { transform: rotate(7deg) translateX(28px); }
 .stack img:nth-child(3) { transform: rotate(-1deg); }
-.stack:hover img:nth-child(1), .stack.is-open img:nth-child(1) { transform: rotate(-13deg) translateX(-100px) translateY(12px); }
-.stack:hover img:nth-child(2), .stack.is-open img:nth-child(2) { transform: rotate(11deg) translateX(100px) translateY(12px); }
-.stack:hover img:nth-child(3), .stack.is-open img:nth-child(3) { transform: scale(1.04); }
+.stack.is-open img:nth-child(1) { transform: rotate(-13deg) translateX(-100px) translateY(12px); }
+.stack.is-open img:nth-child(2) { transform: rotate(11deg) translateX(100px) translateY(12px); }
+.stack.is-open img:nth-child(3) { transform: scale(1.04); }
+@media (hover: hover) and (pointer: fine) {
+  .stack:hover img:nth-child(1) { transform: rotate(-13deg) translateX(-100px) translateY(12px); }
+  .stack:hover img:nth-child(2) { transform: rotate(11deg) translateX(100px) translateY(12px); }
+  .stack:hover img:nth-child(3) { transform: scale(1.04); }
+}
 @media (min-width: 960px) {
   .hero-top { grid-template-columns: 1.25fr .75fr; }
   .hero-text { text-align: right; }
@@ -777,8 +782,12 @@ h2.is-in .rw-in { transform: none; }
 @media (max-width: 520px) {
   .hero-visual { min-height: 330px; }
   .stack { width: 200px; height: 250px; }
-  .stack:hover img:nth-child(1), .stack.is-open img:nth-child(1) { transform: rotate(-12deg) translateX(-80px) translateY(8px); }
-  .stack:hover img:nth-child(2), .stack.is-open img:nth-child(2) { transform: rotate(10deg) translateX(80px) translateY(8px); }
+  .stack.is-open img:nth-child(1) { transform: rotate(-12deg) translateX(-80px) translateY(8px); }
+  .stack.is-open img:nth-child(2) { transform: rotate(10deg) translateX(80px) translateY(8px); }
+}
+@media (max-width: 520px) and (hover: hover) and (pointer: fine) {
+  .stack:hover img:nth-child(1) { transform: rotate(-12deg) translateX(-80px) translateY(8px); }
+  .stack:hover img:nth-child(2) { transform: rotate(10deg) translateX(80px) translateY(8px); }
 }
 @media (prefers-reduced-motion: reduce) { .stack img { transition: none; } }
 
@@ -806,12 +815,21 @@ h2.is-in .rw-in { transform: none; }
 
 /* cards open wider and flatter so more of each photo shows; the whole stack drifts toward the page edge, away from the text */
 .stack { transition: transform .55s cubic-bezier(.2,.8,.2,1); }
-.stack:hover img:nth-child(1), .stack.is-open img:nth-child(1) { transform: rotate(-5deg) translateX(-160px) translateY(10px) scale(.82); }
-.stack:hover img:nth-child(2), .stack.is-open img:nth-child(2) { transform: rotate(5deg) translateX(92px) translateY(10px) scale(.82); }
-.stack:hover img:nth-child(3), .stack.is-open img:nth-child(3) { transform: translateX(-32px) scale(1.02); }
+.stack.is-open img:nth-child(1) { transform: rotate(-5deg) translateX(-160px) translateY(10px) scale(.82); }
+.stack.is-open img:nth-child(2) { transform: rotate(5deg) translateX(92px) translateY(10px) scale(.82); }
+.stack.is-open img:nth-child(3) { transform: translateX(-32px) scale(1.02); }
+@media (hover: hover) and (pointer: fine) {
+  .stack:hover img:nth-child(1) { transform: rotate(-5deg) translateX(-160px) translateY(10px) scale(.82); }
+  .stack:hover img:nth-child(2) { transform: rotate(5deg) translateX(92px) translateY(10px) scale(.82); }
+  .stack:hover img:nth-child(3) { transform: translateX(-32px) scale(1.02); }
+}
 @media (max-width: 520px) {
-  .stack:hover img:nth-child(1), .stack.is-open img:nth-child(1) { transform: rotate(-5deg) translateX(-95px) translateY(6px) scale(.86); }
-  .stack:hover img:nth-child(2), .stack.is-open img:nth-child(2) { transform: rotate(5deg) translateX(95px) translateY(6px) scale(.86); }
+  .stack.is-open img:nth-child(1) { transform: rotate(-5deg) translateX(-95px) translateY(6px) scale(.86); }
+  .stack.is-open img:nth-child(2) { transform: rotate(5deg) translateX(95px) translateY(6px) scale(.86); }
+}
+@media (max-width: 520px) and (hover: hover) and (pointer: fine) {
+  .stack:hover img:nth-child(1) { transform: rotate(-5deg) translateX(-95px) translateY(6px) scale(.86); }
+  .stack:hover img:nth-child(2) { transform: rotate(5deg) translateX(95px) translateY(6px) scale(.86); }
 }
 
 /* atmosphere images */
